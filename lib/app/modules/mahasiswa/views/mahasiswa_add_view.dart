@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/mahasiswa/controllers/mahasiswa_controller.dart';
 
 class MahasiswaAddView extends GetView<MahasiswaController> {
   const MahasiswaAddView({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,7 @@ class MahasiswaAddView extends GetView<MahasiswaController> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8.0), // Menambahkan const dan menggunakan double
         child: ListView(
           children: [
             TextField(
@@ -27,7 +27,7 @@ class MahasiswaAddView extends GetView<MahasiswaController> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
@@ -40,7 +40,7 @@ class MahasiswaAddView extends GetView<MahasiswaController> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
@@ -55,10 +55,10 @@ class MahasiswaAddView extends GetView<MahasiswaController> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Container(
+            SizedBox(
               width: double.infinity, // Mengisi lebar secara penuh
               child: ElevatedButton(
                 onPressed: () {
@@ -68,11 +68,11 @@ class MahasiswaAddView extends GetView<MahasiswaController> {
                     controller.cAlamat.text,
                   );
                 },
-                child: Text("Simpan"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
                   foregroundColor: Colors.white, // Warna teks di tombol
                 ),
+                child: const Text("Simpan"),
               ),
             ),
           ],

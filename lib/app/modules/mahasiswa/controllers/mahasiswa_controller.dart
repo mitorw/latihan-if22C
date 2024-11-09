@@ -11,12 +11,12 @@ class MahasiswaController extends GetxController {
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  Future<QuerySnapshot<Object?>> getData() async {
+  Future<QuerySnapshot<Object?>> GetData() async {
     CollectionReference mahasiswa = firestore.collection('mahasiswa');
     return mahasiswa.get();
   }
 
-  Stream<QuerySnapshot<Object?>> streamData() {
+  Stream<QuerySnapshot<Object?>> StreamData() {
     CollectionReference mahasiswa = firestore.collection('mahasiswa');
     return mahasiswa.snapshots();
   }
@@ -50,6 +50,12 @@ class MahasiswaController extends GetxController {
       );
     }
   }
+
+  Future<DocumentSnapshot<Object?>> GetDataById(String id) async {
+    DocumentReference docRef = firestore.collection("mahasiswa").doc(id);
+
+    return docRef.get();
+}
 
   @override
   void onInit() {
