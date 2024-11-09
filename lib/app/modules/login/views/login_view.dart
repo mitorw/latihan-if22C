@@ -7,7 +7,7 @@ import '../controllers/login_controller.dart';
 class LoginView extends GetView<LoginController> {
   final cAuth = Get.find<AuthController>();
 
-   LoginView({super.key});
+  LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,16 +62,15 @@ class LoginView extends GetView<LoginController> {
                 },
                 child: const Text("Reset Password"),
               ),
-),
-            TextButton(
-              onPressed: () {
-                Get.toNamed(Routes.LOGIN);
-              },
-              child: const Text(
-                "Sudah Punya Akun? Login Disini",
-                style: TextStyle(color: Colors.blue),
-              )
             ),
+            TextButton(
+                onPressed: () {
+                  Get.toNamed(Routes.LOGIN);
+                },
+                child: const Text(
+                  "Belum Punya Akun? Sign Up Disini",
+                  style: TextStyle(color: Colors.blue),
+                )),
           ],
         ),
       ),
