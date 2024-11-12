@@ -9,6 +9,7 @@ class MahasiswaUpdateView extends GetView<MahasiswaController> {
   const MahasiswaUpdateView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Get.put(MahasiswaController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ubah Mahasiswa'),
@@ -71,8 +72,15 @@ class MahasiswaUpdateView extends GetView<MahasiswaController> {
                   Container(
                     width: double.infinity, // Mengisi lebar secara penuh
                     child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text("Ubah"),
+                      onPressed: () {
+                        controller.Update(
+                          controller.cNpm.text,
+                          controller.cNama.text,
+                          Get.arguments,
+                          controller.cAlamat.text,
+                        );
+                      },
+                      child: Text("Update"),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.teal,
                         foregroundColor: Colors.white, // Warna teks di tombol
