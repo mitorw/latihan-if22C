@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/dosen/bindings/dosen_binding.dart';
+import '../modules/dosen/views/dosen_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -41,8 +43,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.MAHASISWA,
-      page: () =>  MahasiswaView(),
+      page: () => MahasiswaView(),
       binding: MahasiswaBinding(),
+    ),
+    GetPage(
+      name: _Paths.DOSEN,
+      page: () =>  DosenView(),
+      binding: DosenBinding(),
     ),
   ];
 }

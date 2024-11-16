@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:myapp/app/controllers/auth_controller.dart';
+import 'package:myapp/app/modules/dosen/views/dosen_add_view.dart';
+import 'package:myapp/app/modules/dosen/views/dosen_view.dart';
 import 'package:myapp/app/modules/mahasiswa/views/mahasiswa_add_view.dart';
 import 'package:myapp/app/modules/mahasiswa/views/mahasiswa_view.dart';
 
@@ -38,8 +40,8 @@ class _DashboardAdminState extends State<DashboardAdmin> {
     },
     {
       'title': 'Data Dosen',
-      'view': MahasiswaView(),
-      'add': () => MahasiswaAddView()
+      'view': DosenView(),
+      'add': () => DosenAddView()
     },
     {
       'title': 'Data Pegawai',
