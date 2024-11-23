@@ -1,36 +1,37 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MahasiswaController extends GetxController {
-  // Implementasi MahasiswaController
-
+  //TODO: Implement MahasiswaController
   late TextEditingController cNpm;
   late TextEditingController cNama;
   late TextEditingController cAlamat;
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  Future<QuerySnapshot<Object?>> getData() async {
+  Future<QuerySnapshot<Object?>> GetData() async {
     CollectionReference mahasiswa = firestore.collection('mahasiswa');
+
     return mahasiswa.get();
   }
 
-  Stream<QuerySnapshot<Object?>> streamData() {
+  Stream<QuerySnapshot<Object?>> StreamData() {
     CollectionReference mahasiswa = firestore.collection('mahasiswa');
+
     return mahasiswa.snapshots();
   }
-Future<DocumentSnapshot<Object?>> GetDataById(String id) async {
+
+  Future<DocumentSnapshot<Object?>> GetDataById(String id) async {
     DocumentReference docRef = firestore.collection("mahasiswa").doc(id);
 
     return docRef.get();
-}
- void delete(String id) async{
+  }
+
+  void delete(String id) {
     DocumentReference docRef = firestore.collection("mahasiswa").doc(id);
 
     try {
-      await docRef.delete();
       Get.defaultDialog(
         title: "Info",
         middleText: "Apakah anda yakin menghapus data ini ?",
@@ -55,9 +56,7 @@ Future<DocumentSnapshot<Object?>> GetDataById(String id) async {
   }
 
 
-
-
-void Update(String npm, String nama, String id, String alamat) async {
+  void Update(String npm, String nama, String id, String alamat) async {
     DocumentReference mahasiswaById = firestore.collection("mahasiswa").doc(id);
 
     try {
@@ -83,8 +82,8 @@ void Update(String npm, String nama, String id, String alamat) async {
       Get.defaultDialog(
         title: "Terjadi Kesalahan",
         middleText: "Gagal Menambahkan Mahasiswa.",
-  );
-}
+      );
+    }
 }
 
   void add(String npm, String nama, String alamat) async {
@@ -97,17 +96,18 @@ void Update(String npm, String nama, String id, String alamat) async {
         "alamat": alamat,
       });
       Get.defaultDialog(
-        title: "Berhasil",
-        middleText: "Berhasil menyimpan data mahasiswa",
-        textConfirm: "OK",
-        onConfirm: () {
-          cNpm.clear();
-          cNama.clear();
-          cAlamat.clear();
-          Get.back();
-          Get.back();
-        },
-      );
+          title: "Berhasil",
+          middleText: "Berhasil menyimpan data mahasiswa",
+          onConfirm: () {
+            cNpm.clear();
+            cNama.clear();
+            cAlamat.clear();
+            Get.back();
+            Get.back();
+            Get.back();
+            textConfirm:
+            "OK";
+          });
     } catch (e) {
       print(e);
       Get.defaultDialog(
@@ -119,6 +119,7 @@ void Update(String npm, String nama, String id, String alamat) async {
 
   @override
   void onInit() {
+    // TODO: implement onInit
     cNpm = TextEditingController();
     cNama = TextEditingController();
     cAlamat = TextEditingController();
@@ -127,6 +128,7 @@ void Update(String npm, String nama, String id, String alamat) async {
 
   @override
   void onClose() {
+    // TODO: implement onClose
     cNpm.dispose();
     cNama.dispose();
     cAlamat.dispose();

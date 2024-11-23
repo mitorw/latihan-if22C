@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/dosen/controllers/dosen_controller.dart';
-
 
 class DosenAddView extends GetView<DosenController> {
   const DosenAddView({super.key});
@@ -46,12 +44,24 @@ class DosenAddView extends GetView<DosenController> {
               height: 10,
             ),
             TextField(
-              controller: controller.cAlamat,
+              controller: controller.cProdi,
               textInputAction: TextInputAction.done,
               maxLines: 3,
               maxLength: 100,
               decoration: InputDecoration(
-                labelText: "Alamat",
+                labelText: "prodi",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            TextField(
+              controller: controller.cFakultas,
+              textInputAction: TextInputAction.done,
+              maxLines: 3,
+              maxLength: 100,
+              decoration: InputDecoration(
+                labelText: "fakultas",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -67,7 +77,8 @@ class DosenAddView extends GetView<DosenController> {
                   controller.add(
                     controller.cNidn.text,
                     controller.cNama.text,
-                    controller.cAlamat.text,
+                    controller.cProdi.text,
+                    controller.cFakultas.text,
                   );
                 },
                 child: Text("Simpan"),

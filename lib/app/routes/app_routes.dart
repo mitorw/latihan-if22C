@@ -19,4 +19,5 @@ abstract class _Paths {
   static const RESET_PASSWORD = '/reset-password';
   static const MAHASISWA = '/mahasiswa';
   static const DOSEN = '/dosen';
+
 }

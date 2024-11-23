@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/dosen/controllers/dosen_controller.dart';
-
 
 
 class DosenUpdateView extends GetView<DosenController> {
@@ -13,7 +11,7 @@ class DosenUpdateView extends GetView<DosenController> {
     Get.put(DosenController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ubah dosen'),
+        title: const Text('Ubah Dosen'),
         centerTitle: true,
       ),
       body: FutureBuilder<DocumentSnapshot<Object?>>(
@@ -21,9 +19,10 @@ class DosenUpdateView extends GetView<DosenController> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             var data = snapshot.data!.data() as Map<String, dynamic>;
-            controller.cNidn.text = data['ndin'];
+            controller.cNidn.text = data['nidn'];
             controller.cNama.text = data['nama'];
-            controller.cAlamat.text = data['alamat'];
+            controller.cProdi.text = data['prodi'];
+            controller.cFakultas.text = data['fakultas'];
             return Padding(
               padding: EdgeInsets.all(8),
               child: ListView(
@@ -56,12 +55,12 @@ class DosenUpdateView extends GetView<DosenController> {
                     height: 10,
                   ),
                   TextField(
-                    controller: controller.cAlamat,
+                    controller: controller.cProdi,
                     textInputAction: TextInputAction.done,
                     maxLines: 3,
                     maxLength: 100,
                     decoration: InputDecoration(
-                      labelText: "Alamat",
+                      labelText: "prodi",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -69,6 +68,18 @@ class DosenUpdateView extends GetView<DosenController> {
                   ),
                   SizedBox(
                     height: 30,
+                  ),
+                  TextField(
+                    controller: controller.cFakultas,
+                    textInputAction: TextInputAction.done,
+                    maxLines: 3,
+                    maxLength: 100,
+                    decoration: InputDecoration(
+                      labelText: "fakultas",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                   ),
                   Container(
                     width: double.infinity, // Mengisi lebar secara penuh
@@ -78,7 +89,8 @@ class DosenUpdateView extends GetView<DosenController> {
                           controller.cNidn.text,
                           controller.cNama.text,
                           Get.arguments,
-                          controller.cAlamat.text,
+                          controller.cProdi.text,
+                          controller.cFakultas.text,
                         );
                       },
                       child: Text("Update"),

@@ -1,11 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/dosen/controllers/dosen_controller.dart';
 import 'package:myapp/app/modules/dosen/views/dosen_update_view.dart';
-
-
-import '../controllers/dosen_controller.dart';
 
 class DosenView extends GetView<DosenController> {
   void Showoption(id) async {

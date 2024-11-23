@@ -40,7 +40,7 @@ class MahasiswaView extends GetView<MahasiswaController> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot<Object?>>(
-        stream: Get.put(MahasiswaController().streamData()),
+        stream: Get.put(MahasiswaController().StreamData()),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             var listAllDocs = snapshot.data?.docs ?? [];

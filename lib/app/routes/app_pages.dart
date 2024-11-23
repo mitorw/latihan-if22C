@@ -48,8 +48,9 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.DOSEN,
-      page: () =>  DosenView(),
+      page: () => DosenView(),
       binding: DosenBinding(),
+      
     ),
   ];
 }
